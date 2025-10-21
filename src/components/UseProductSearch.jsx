@@ -26,7 +26,7 @@ const UseProductSearch = (debounceTime = 200) => {
 
         // Replace with your actual API endpoint
         axios
-          .get(`http://localhost:8000/api/product/search/${searchTerm}`)
+          .get(`${process.env.REACT_APP_BACKEND_URL}/api/product/search/${searchTerm}`)
           .then((response) => {
             console.log(response);
             setSearchResults(response.data);
@@ -52,7 +52,7 @@ const UseProductSearch = (debounceTime = 200) => {
       // Replace with your actual API endpoint
       axios
         .get(
-          `http://localhost:8000/api/product/matching/${selectedProduct._id}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/product/matching/${selectedProduct._id}`
         )
         .then((response) => {
           console.log("matching products", response);
@@ -71,7 +71,7 @@ const UseProductSearch = (debounceTime = 200) => {
 
     // Replace with your actual API endpoint
     axios
-      .get(`http://localhost:8000/api/product/findById/${product._id}`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/product/findById/${product._id}`)
       .then((response) => {
         console.log(response);
         setSelectedProduct(response.data);
